@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title%}HOME{% endblock %}
+{% block include %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+{% endblock %}
+{% block content %}
+
+    <br><br><br>
+    <h1 align="center"><b>Edit Bag</b></h1>
+<body>
+{% csrf_token %}
+ <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Update</button>
+    </form>
+{% endblock %}

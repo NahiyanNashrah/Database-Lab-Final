@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    {% block include %}{% endblock %}
+</head>
+    <body style="height: 700px">
+        {% if user.is_authenticated %}
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'home' %}">Blood Bank</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Donor<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'createDonor' %}">Add New Donor</a></li>
+                            <li><a href="{% url 'showDonor' %}">Donor's Record</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recipient<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Add New Recipient</a></li>
+                            <li><a href="#">Recipient's Record</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Available Storage</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href=""><span class="glyphicon glyphicon-user"></span>{{ user.username }}</a></li>
+                    <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        {% else %}
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'home' %}">Blood Bank</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="pointer-events: none">Donor<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'createDonor' %}" style="pointer-events: none">Add New Donor</a></li>
+                            <li><a href="{% url 'showDonor' %}" style="pointer-events: none">Donor's Record</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="pointer-events: none">Recipient<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" style="pointer-events: none">Add New Recipient</a></li>
+                            <li><a href="#" style="pointer-events: none">Recipient's Record</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" style="pointer-events: none">Available Storage</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </nav>
+          <p>You are not logged in</p>
+          <a href="{% url 'login' %}">login</a>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>

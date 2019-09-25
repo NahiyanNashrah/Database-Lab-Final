@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title%}HOME{% endblock %}
+{% block include %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+{% endblock %}
+{% block content %}
+
+    <br><br><br>
+<form method="POST" class="post-form" action="/store/">
+    {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+        <h1 align="center">Enter Bag Details</h1>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Bag Id:</label>
+        <div class="col-sm-4">
+        {{ storageform.bag_id }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Blood_Id:</label>
+        <div class="col-sm-4">
+        {{ storageform.blood_id }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Blood Group:</label>
+        <div class="col-sm-4">
+        {{ storageform.blood_group }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label"> RH type:</label>
+        <div class="col-sm-4">
+        {{ storageform.rh_type }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Amount:</label>
+        <div class="col-sm-4">
+        {{ storageform.amount }}
+            <label>ml</label>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Stored Date:</label>
+        <div class="col-sm-4">
+        {{ storageform.stored_date }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Expired_Date:</label>
+        <div class="col-sm-4">
+        {{ storageform.expired_date }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Availability:</label>
+        <div class="col-sm-4">
+        {{ storageform.available }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+       <button type="submit" class = "btn btn-primary">Submit</button>
+        </div>
+    </div>
+    </div>
+</form>
+{% endblock %}

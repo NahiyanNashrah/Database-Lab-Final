@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title%}HOME{% endblock %}
+{% block include %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+{% endblock %}
+{% block content %}
+
+    <br><br><br>
+<form method="POST" class="post-form" action="/receive/">
+    {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+        <h1 align="center">Recipient Details</h1>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Recipient Id:</label>
+        <div class="col-sm-4">
+        {{ form.serial_no }}
+        </div>
+    </div>
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Recipient Name:</label>
+        <div class="col-sm-4">
+        {{ form.patient_name }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Bag Id:</label>
+        <div class="col-sm-4">
+        {{ form.bag_id }}
+        </div>
+    </div>
+ <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Age:</label>
+        <div class="col-sm-4">
+        {{ form.age }}
+        </div>
+    </div>
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Blood Group:</label>
+        <div class="col-sm-4">
+        {{ form.blood_group }}
+        </div>
+    </div>
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Gender:</label>
+        <div class="col-sm-4">
+        {{ form.gender }}
+        </div>
+    </div>
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Referred By:</label>
+        <div class="col-sm-4">
+        {{ form.referred_by }}
+        </div>
+    </div>
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Ward :</label>
+        <div class="col-sm-4">
+        {{ form.ward  }}
+        </div>
+    </div>
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Unit:</label>
+        <div class="col-sm-4">
+        {{ form.unit }}
+        </div>
+    </div>
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Cabin Bed:</label>
+        <div class="col-sm-4">
+        {{ form.cabin_bed }}
+        </div>
+    </div>
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Issued Voucher No:</label>
+        <div class="col-sm-4">
+        {{ form.issue_voucher_no }}
+        </div>
+    </div>
+  <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Date:</label>
+        <div class="col-sm-4">
+{#            <input type="date" {{ form.date }}>#}
+                {{ form.date }}
+        </div>
+    </div>
+    </div>
+  <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+       <button type="submit" class = "btn btn-primary">Submit</button>
+        </div>
+    </div>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title%}HOME{% endblock %}
+{% block include %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+{% endblock %}
+{% block content %}
+<form method="POST" class="post-form" action="/blood_test_method/">
+    {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+            <br><br>
+        <h3 align="center">Enter Details</h3>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label"> blood_id:</label>
+        <div class="col-sm-4">
+        {{ blood_testform.blood_id }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label"> HCV:</label>
+        <div class="col-sm-4">
+        {{ blood_testform.HCV }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label"> HIV:</label>
+        <div class="col-sm-4">
+        {{ blood_testform.HIV }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label"> HBsAg:</label>
+        <div class="col-sm-4">
+        {{ blood_testform.HBsAg }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label"> Syphilis:</label>
+        <div class="col-sm-4">
+        {{ blood_testform.Syphilis }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label"> MP:</label>
+        <div class="col-sm-4">
+        {{ blood_testform.MP }}
+        </div>
+    </div>
+        <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+       <button type="submit" class = "btn btn-primary">Submit</button>
+        </div>
+    </div>
+
+
+    </div>
+</form>
+
+{% endblock %}
